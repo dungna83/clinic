@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="bootstrap/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">app/Http</directory>
+            <directory suffix=".php">app/Repositories</directory>
+            <exclude>
+                <file>Kernel.php</file>
+                <file>LoggerService.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html" target="build/coverage"/>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+        <log type="coverage-crap4j" target="build/logs/crap4j.xml"/>
+        <log type="coverage-xml" target="build/logs/coverage"/>
+        <log type="junit" target="build/logs/junit.xml"/>
+        <log type="testdox-html" target="build/testdox/index.html"/>
+    </logging>
+
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="QUEUE_DRIVER" value="sync"/>
+        <env name="APP_URL" value="http://test.dungna.com"/>
+    </php>
+</phpunit>
