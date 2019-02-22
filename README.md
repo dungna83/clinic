@@ -1,6 +1,6 @@
-#Clinic test
+# Clinic test
 
-##Environment
+## Environment
 - Homestead
 - Mysql/5.6
 - PHP/7.2
